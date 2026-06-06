@@ -19,7 +19,9 @@ class Category extends Model
         'cat_top',
         'status',
     ];
-
+    public function items(){
+        return $this->hasMany(Product::class)
+    }
 
     public function sluggable(): array
     {
@@ -36,7 +38,7 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'cat_top');
     }
 
-    
+
     public function children()
     {
         return $this->hasMany(Category::class, 'cat_top');
