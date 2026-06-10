@@ -35,7 +35,7 @@ class PageController extends Controller
      })
       ->paginate(1);
 
-     $categories= Category::where('status','1')->where('cat_top',null)->get();
+     
 
         return view('frontend.pages.products', compact('products'));
     }

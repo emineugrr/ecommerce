@@ -3,7 +3,7 @@
   <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
         </div>
       </div>
     </div>
@@ -23,11 +23,10 @@
                       Latest
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        @if (!empty($categories)&& $categories-> count() > 0)
+                        @if (!empty($categories) && $categories->count() > 0)
                         @foreach ($categories as $category)
-                          <a class="dropdown-item" href="#">{{$category->name}}</a>
+                          <a class="dropdown-item" href="#">{{ $category->name }}</a>
                         @endforeach
-
                         @endif
                     </div>
                   </div>
@@ -45,71 +44,58 @@
                 </div>
               </div>
             </div>
+
             <div class="row mb-5">
-
-
-                @if (!empty($products)&& $products->count() > 0)
+                @if (!empty($products) && $products->count() > 0)
                 @foreach ($products as $product)
-
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-    <div class="block-4 text-center border">
-        <figure class="block-4-image">
-            <a href="{{ route('productsdetail', $product->slug) }}">
-                <img src="{{ asset($product->image) }}" alt="Image placeholder" class="img-fluid">
-            </a>
-        </figure>
+                    <div class="block-4 text-center border">
+                        <figure class="block-4-image">
+                            <a href="{{ route('productsdetail', $product->slug) }}">
+                                <img src="{{ asset($product->image) }}" alt="Image placeholder" class="img-fluid">
+                            </a>
+                        </figure>
 
-        <div class="block-4-text p-4">
-            <h3>
-                <a href="{{ route('productsdetail', $product->slug) }}">
-                    {{ $product->name }}
-                </a>
-            </h3>
-
-            <p class="mb-0">{{ $product->short_text }}</p>
-
-            <p class="text-primary font-weight-bold">
-                {{ number_format($product->price,0) }}
-            </p>
-        </div>
-    </div>
-</div>
-                @endforeach
-
-                @endif
-
-
-
-
-            </div>
-            <div class="row" data-aos="fade-up">
-                {{$products->withQueryString()->links('vendor.pagination.custom')}}
-             {{-- <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
-                  </ul>
+                        <div class="block-4-text p-4">
+                            <h3>
+                                <a href="{{ route('productsdetail', $product->slug) }}">
+                                    {{ $product->title }}
+                                </a>
+                            </h3>
+                            <p class="mb-0">{{ $product->description }}</p>
+                            <p class="text-primary font-weight-bold">
+                                ${{ number_format($product->price, 2) }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-                --}}
+                @endforeach
+                @else
+                <div class="col-12 text-center">
+                    <p class="alert alert-warning">No products found.</p>
+                </div>
+                @endif
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                {{ $products->withQueryString()->links('vendor.pagination.custom') }}
             </div>
           </div>
-
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
               <ul class="list-unstyled mb-0">
-                 @if (!empty($categories)&& $categories-> count() > 0)
+                 @if (!empty($categories) && $categories->count() > 0)
                         @foreach ($categories as $category)
- <li class="mb-1"><a href="#" class="d-flex"><span>{{$category->name}}</span> <span class="text-black ml-auto">(0)</span></a></li>
+                            <li class="mb-1">
+                                <a href="#" class="d-flex">
+                                    <span>{{ $category->name }}</span>
+                                    <span class="text-black ml-auto">(0)</span>
+                                </a>
+                            </li>
                         @endforeach
+                 @endif {{-- FIX: Missing endif was added here --}}
               </ul>
             </div>
 
@@ -165,7 +151,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
                     <a class="block-2-item" href="#">
                       <figure class="image">
-                        <img src="images/women.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('images/women.jpg') }}" alt="" class="img-fluid">
                       </figure>
                       <div class="text">
                         <span class="text-uppercase">Collections</span>
@@ -176,7 +162,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                     <a class="block-2-item" href="#">
                       <figure class="image">
-                        <img src="images/children.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('images/children.jpg') }}" alt="" class="img-fluid">
                       </figure>
                       <div class="text">
                         <span class="text-uppercase">Collections</span>
@@ -187,7 +173,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                     <a class="block-2-item" href="#">
                       <figure class="image">
-                        <img src="images/men.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('images/men.jpg') }}" alt="" class="img-fluid">
                       </figure>
                       <div class="text">
                         <span class="text-uppercase">Collections</span>
@@ -203,5 +189,4 @@
 
       </div>
     </div>
-
 @endsection

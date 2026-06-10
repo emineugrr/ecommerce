@@ -1,44 +1,31 @@
 @extends('frontend.layout.layout')
 @section('content')
 
-
 @if ($slider)
-
-
-    <div class="site-blocks-cover"
-     style="background-image: url('{{ asset('frontend/images/hero_1.jpg') }}');"
+<div class="site-blocks-cover"
+     style="background-image: url('{{ asset('images/hero_1.jpg') }}');"
      data-aos="fade">
-
     <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
-
             <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-
                 <h1 class="mb-2">
                     Welcome To Shoppers
                 </h1>
-
                 <div class="intro-text text-center text-md-left">
 
                     <p class="mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.
+                        Discover the latest trends in modern fashion and premium apparel. Explore our high-quality collections crafted just for you, featuring the perfect blend of style, comfort, and exceptional quality.
                     </p>
-
                     <p>
-                        <a href="#"
-                           class="btn btn-sm btn-primary">
-                            Our Products
+                      
+                        <a href="{{ route('products') }}" class="btn btn-sm btn-primary text-uppercase">
+                            Shop Our Products
                         </a>
                     </p>
-
                 </div>
-
             </div>
-
         </div>
     </div>
-
 </div>
 @endif
 
@@ -82,7 +69,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
             <a class="block-2-item" href="{{route('womenproducts')}}">
               <figure class="image">
-                <img src="images/women.jpg" alt="" class="img-fluid">
+                <img src="{{ asset('images/women.jpg') }}" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -93,7 +80,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <a class="block-2-item" href="{{route('childirenproducts')}}">
               <figure class="image">
-                <img src="images/children.jpg" alt="" class="img-fluid">
+                <img src="{{ asset('images/children.jpg') }}" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -104,7 +91,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
             <a class="block-2-item" href="{{route('menproducts')}}">
               <figure class="image">
-                <img src="images/men.jpg" alt="" class="img-fluid">
+                <img src="{{ asset('images/men.jpg') }}" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -126,66 +113,72 @@
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
+
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ asset('images/cloth_1.jpg') }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Tank Top</a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">$50.00</p>
                   </div>
                 </div>
               </div>
+
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ asset('images/shoe_1.jpg') }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">$50.00</p>
                   </div>
                 </div>
               </div>
+
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ asset('images/cloth_2.jpg') }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Polo Shirt</a></h3>
                     <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">$50.00</p>
                   </div>
                 </div>
               </div>
+
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ asset('images/cloth_3.jpg') }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">T-Shirt Mockup</a></h3>
                     <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">$50.00</p>
                   </div>
                 </div>
               </div>
+
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="{{ asset('images/shoe_1.jpg') }}" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">$50.00</p>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -194,18 +187,17 @@
 
     <div class="site-section block-8">
       <div class="container">
-        <div class="row justify-content-center  mb-5">
+        <div class="row justify-content-center mb-5">
           <div class="col-md-7 site-section-heading text-center pt-4">
             <h2>Big Sale!</h2>
           </div>
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="#"><img src="{{ asset('images/blog_1.jpg') }}" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
             <h4>50% less in all items</h4>
-
             <p>Don’t miss discounts on selected products.</p>
             <p><a href="{{route('discountedproducts')}}" class="btn btn-primary btn-sm">Shop Now</a></p>
           </div>

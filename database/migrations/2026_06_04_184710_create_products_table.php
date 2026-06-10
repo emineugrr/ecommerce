@@ -6,33 +6,45 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-         $table->id();
-         $table->string('name')->nullable();
-         $table->string('slug')->nullable();
-          $table->string('image')->nullable();
-         $table->unsignedBigInteger('category_id')->nullable();
-        $table->longText('content')->nullable();
-        $table->text('short_text')->nullable();
-        $table->double('price',8,2)->nullable();
-         $table->string('size')->nullable();
-         $table->string('color')->nullable();
-          $table->integer('qty')->default(0);
-          $table->enum('status',['0','1'])->default('0');
-         $table->timestamps();
+            $table->id();
+
+
+            $table->foreignId('category_id')
+                  ->constrained('categories')
+                  ->onDelete('cascade');
+
+            $table->foreignId('user_id')
+                  ->constrained('users')
+                  ->onDelete('cascade');
+
+
+            $table->string('title');
+            $table->string('keywords')->nullable();
+            $table->string('description')->nullable();
+            $table->text('detail')->nullable();
+            $table->string('image')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->integer('stock')->default(0);
+            $table->integer('minstock')->default(0);
+            $table->integer('discount')->default(0);
+            $table->boolean('status')->default(false);
+
+
+            $table->string('slug')->nullable();
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('products'); 
     }
 };

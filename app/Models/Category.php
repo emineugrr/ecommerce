@@ -20,7 +20,7 @@ class Category extends Model
         'status',
     ];
     public function items(){
-        return $this->hasMany(Product::class)
+        return $this->hasMany(Product::class);
     }
 
     public function sluggable(): array
