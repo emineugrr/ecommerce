@@ -33,7 +33,7 @@
     <div id="page-content-wrapper" class="w-100">
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3 shadow-sm">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Dashboard Overview</span>
+                <span class="navbar-brand mb-0 h1">Dashboard Overview.</span>
                 <div class="ms-auto">
                     <span class="text-muted">Logged in as: <strong>{{ auth()->user()->name }}</strong></span>
                 </div>
